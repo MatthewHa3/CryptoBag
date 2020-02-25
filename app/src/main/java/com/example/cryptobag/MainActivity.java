@@ -19,14 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mButton = findViewById(R.id.btnLaunchActivity);
+
         mButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                launchDetailActivity("Hello");
+                launchDetailActivity("Hello from Detailed Activity ***");
             }
         });
     }
-
 
     private void launchDetailActivity(String message){
         Intent intent = new Intent( this, DetailActivity.class);

@@ -4,4 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"/>
+    tools:context=".DetailActivity">
+
+    <Button
+        android:id="@+id/btnShowVideo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="338dp" />
+
+    <TextView
+        android:id="@+id/tvDetailMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is from Detailed Activity"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="236dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
