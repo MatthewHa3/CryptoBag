@@ -7,10 +7,19 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/activity_launch"
+        android:id="@+id/btnLaunchActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="launchActivityButton"
         android:text="Launch Activity Button"
         tools:layout_editor_absoluteX="104dp"
         tools:layout_editor_absoluteY="314dp" />
+
+    <TextView
+        android:id="@+id/tvdetailMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is the Detailed Activity"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="214dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
