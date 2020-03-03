@@ -42,20 +42,33 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
+        int coinSign = Integer.parseInt(message);
 
         ArrayList<Coin> coins = Coin.getCoins();
-        final Coin coin = Coin.getCoins().get(0);
+
+
+        final Coin coin = Coin.getCoins().get(coinSign);
         mName.setText(coin.getName());
         mSymbol.setText(coin.getSymbol());
         mValue.setText(formatter.format(coin.getValue()));
-        mChange1h.setText((coin.getChange1h()) + "%" );
-        mChange24h.setText((coin.getChange24h()) + "%" );
-        mChange7d.setText((coin.getChange7d()) + "%" );
+        mChange1h.setText((coin.getChange1h()) + "%");
+        mChange24h.setText((coin.getChange24h()) + "%");
+        mChange7d.setText((coin.getChange7d()) + "%");
         mMarketcap.setText(formatter.format(coin.getMarketcap()));
         mVolume.setText(formatter.format(coin.getVolume()));
-
+        mSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchCoin(coin.getName());
+            }
+        });
 
     }
 
+    private void searchCoin(String coinName) {
+        Uri uri = Uri.parse("http://www.google.com/#q=" + coinName);
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
 
 }

@@ -1,12 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnLaunchActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="Launch Activity" />
-</LinearLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginRight="108dp"
+        android:text="LAUNCH DETAIL ACTIVITY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBitcoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginLeft="81dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:text="Bitcoin"
+        app:layout_constraintEnd_toStartOf="@+id/btnEthereum"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLaunchActivity" />
+
+    <Button
+        android:id="@+id/btnXrp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="XRP"
+        app:layout_constraintEnd_toStartOf="@+id/btnBitcoinCash"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnBitcoin"
+        app:layout_constraintTop_toBottomOf="@+id/btnBitcoin" />
+
+    <Button
+        android:id="@+id/btnBitcoinSv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Bitcoin SV"
+        app:layout_constraintStart_toStartOf="@+id/btnBitcoin"
+        app:layout_constraintTop_toBottomOf="@+id/btnXrp" />
+
+    <Button
+        android:id="@+id/btnTether"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Tether"
+        app:layout_constraintStart_toStartOf="@+id/btnEthereum"
+        app:layout_constraintTop_toBottomOf="@+id/btnBitcoinCash" />
+
+    <Button
+        android:id="@+id/btnEthereum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginRight="97dp"
+        android:text="Ethereum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnBitcoin"
+        app:layout_constraintTop_toTopOf="@+id/btnBitcoin" />
+
+    <Button
+        android:id="@+id/btnBitcoinCash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Bitcoin Cash"
+        app:layout_constraintStart_toStartOf="@+id/btnEthereum"
+        app:layout_constraintTop_toBottomOf="@+id/btnEthereum" />
+
+    <Button
+        android:id="@+id/btnLitecoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Litecoin"
+        app:layout_constraintStart_toStartOf="@+id/btnBitcoin"
+        app:layout_constraintTop_toBottomOf="@+id/btnBitcoinSv" />
+
+    <Button
+        android:id="@+id/btnEos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="EOS"
+        app:layout_constraintStart_toStartOf="@+id/btnEthereum"
+        app:layout_constraintTop_toBottomOf="@+id/btnTether" />
+
+    <Button
+        android:id="@+id/btnBinance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Binance Coin"
+        app:layout_constraintStart_toStartOf="@+id/btnBitcoin"
+        app:layout_constraintTop_toBottomOf="@+id/btnLitecoin" />
+
+    <Button
+        android:id="@+id/btnStellar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Stellar"
+        app:layout_constraintStart_toStartOf="@+id/btnEthereum"
+        app:layout_constraintTop_toBottomOf="@+id/btnEos" />
+</androidx.constraintlayout.widget.ConstraintLayout>
