@@ -12,7 +12,6 @@ import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-
 public class DetailActivity extends AppCompatActivity {
     private TextView mName;
     private TextView mSymbol;
@@ -40,9 +39,9 @@ public class DetailActivity extends AppCompatActivity {
         mSearch = findViewById(R.id.ivSearch);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        int coinSign = intent.getIntExtra(MainActivity.EXTRA_MESSAGE, MainActivity.xposition);
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-        int coinSign = Integer.parseInt(message);
+
 
         ArrayList<Coin> coins = Coin.getCoins();
 
