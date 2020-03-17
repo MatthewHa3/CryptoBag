@@ -1,5 +1,8 @@
 package com.example.cryptobag;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +14,26 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.CoinViewHolder> {
+    private MainActivity mParentActivity;
     private ArrayList<Coin> mCoins;
-    private RecyclerViewClickListener mListener;
+    //    private RecyclerViewClickListener mListener;
+    private boolean mTwoPane;
+    private View.OnClickListener getmOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Coin coin = (Coin) v.getTag();
+            if(mTwoPane){
+                Bundle arguments = new Bundle();
+                arguments.putString(DetailActivity.ARG_ITEM_ID, coin.getSymbol());
+                DetailFragment fragment = new DetailFragment();
+                fragment.setArguments(arguments);
+                mParentActivity.getSupportFragmentManager().beginTransaction().replace(R.id.detail_container, fragment).commit();
+            } else{
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DetailActivity.class);
+            }
+        }
+    };
 
     public CoinAdapter(ArrayList<Coin> coins, RecyclerViewClickListener listener) {
         mCoins = coins;
