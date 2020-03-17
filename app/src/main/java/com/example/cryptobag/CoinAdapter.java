@@ -49,7 +49,7 @@ public class CoinAdapter extends RecyclerView.Adapter<CoinAdapter.CoinViewHolder
         public TextView name, value, change;
         private RecyclerViewClickListener mListener;
 
-        public CoinViewHolder(View v, RecyclerViewClickListener listener) {
+        public CoinViewHolder(View v) {
             super(v);
             //mListener = listener;
             //v.setOnClickListener(this);
