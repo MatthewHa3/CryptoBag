@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import java.text.NumberFormat;
 
 
 /**
@@ -20,6 +23,15 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class DetailFragment extends Fragment {
+    private TextView mName;
+    private TextView mSymbol;
+    private TextView mValue;
+    private TextView mChange1h;
+    private TextView mChange24h;
+    private TextView mChange7d;
+    private TextView mMarketcap;
+    private TextView mVolume;
+
     public static final String ARG_ITEM_ID = "item_id";
     private Coin mCoin;
     // TODO: Rename parameter arguments, choose names that match
@@ -34,11 +46,9 @@ public class DetailFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     public DetailFragment() {
+
         // Required empty public constructor
     }
-
-    @Override
-    public void OnCreate(Bundle saveInstantSta)
 
     /**
      * Use this factory method to create a new instance of
@@ -61,15 +71,32 @@ public class DetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        if (getArguments().containsKey(ARG_ITEM_ID) {
+            mCoin = Coin.getCoin(getArguments().getString(ARG_ITEM_ID));
+            this.getActivity().setTitle(mCoin.getName());
+//            mParam1 = getArguments().getString(ARG_PARAM1);
+//            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.detail_fragment, container,false);
+        if(mCoin != null){
+            NumberFormat formatter = NumberFormat.getCurrencyInstance();
+            ((TextView) rootView.findViewById(R.id.tvName)).setText(mCoin.getName());
+            ((TextView) rootView.findViewById(R.id.tvSymbol)).setText(mCoin.getSymbol());
+
+            mValue.setText(formatter.format(coin.getValue()));
+            mChange1h.setText((coin.getChange1h()) + "%");
+            mChange24h.setText((coin.getChange24h()) + "%");
+            mChange7d.setText((coin.getChange7d()) + "%");
+            mMarketcap.setText(formatter.format(coin.getMarketcap()));
+            mVolume.setText(formatter.format(coin.getVolume()));
+
+        }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_detail, container, false);
     }
